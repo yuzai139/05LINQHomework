@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSwapObj = new System.Windows.Forms.Button();
+            this.btnGenericClass = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnSwapAnytype = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.buttonX = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -46,7 +46,7 @@
             this.button38 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSwapIntStr = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -54,14 +54,19 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnGenericItf = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMyWhere = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnDelegate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.nwDataSet1 = new LinqLabs.Dataset.NWDataSet();
+            this.productsTableAdapter1 = new LinqLabs.Dataset.NWDataSetTableAdapters.ProductsTableAdapter();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -85,31 +90,32 @@
             this.splitContainer1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nwDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button5
+            // btnSwapObj
             // 
-            this.button5.AutoSize = true;
-            this.button5.Location = new System.Drawing.Point(42, 100);
-            this.button5.Margin = new System.Windows.Forms.Padding(5);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(372, 51);
-            this.button5.TabIndex = 57;
-            this.button5.Text = "SwapObject";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnSwapObj.AutoSize = true;
+            this.btnSwapObj.Location = new System.Drawing.Point(42, 100);
+            this.btnSwapObj.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSwapObj.Name = "btnSwapObj";
+            this.btnSwapObj.Size = new System.Drawing.Size(372, 51);
+            this.btnSwapObj.TabIndex = 57;
+            this.btnSwapObj.Text = "SwapObject";
+            this.btnSwapObj.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnGenericClass
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(560, 55);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(422, 51);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Generic Class";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnGenericClass.AutoSize = true;
+            this.btnGenericClass.BackColor = System.Drawing.SystemColors.Control;
+            this.btnGenericClass.ForeColor = System.Drawing.Color.Black;
+            this.btnGenericClass.Location = new System.Drawing.Point(560, 55);
+            this.btnGenericClass.Margin = new System.Windows.Forms.Padding(5);
+            this.btnGenericClass.Name = "btnGenericClass";
+            this.btnGenericClass.Size = new System.Drawing.Size(422, 51);
+            this.btnGenericClass.TabIndex = 0;
+            this.btnGenericClass.Text = "Generic Class";
+            this.btnGenericClass.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -118,7 +124,7 @@
             this.label2.Location = new System.Drawing.Point(93, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 22);
+            this.label2.Size = new System.Drawing.Size(96, 18);
             this.label2.TabIndex = 52;
             this.label2.Text = "C# 1.0  / 2.0 ";
             // 
@@ -134,22 +140,23 @@
             this.button6.Text = "從 Linq 實作 看 C# 3.0 ";
             this.button6.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btnSwapAnytype
             // 
-            this.button7.AutoSize = true;
-            this.button7.Location = new System.Drawing.Point(42, 161);
-            this.button7.Margin = new System.Windows.Forms.Padding(5);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(450, 51);
-            this.button7.TabIndex = 58;
-            this.button7.Text = " SwapAnyType -Generic Method";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnSwapAnytype.AutoSize = true;
+            this.btnSwapAnytype.Location = new System.Drawing.Point(42, 161);
+            this.btnSwapAnytype.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSwapAnytype.Name = "btnSwapAnytype";
+            this.btnSwapAnytype.Size = new System.Drawing.Size(450, 51);
+            this.btnSwapAnytype.TabIndex = 58;
+            this.btnSwapAnytype.Text = " SwapAnyType -Generic Method";
+            this.btnSwapAnytype.UseVisualStyleBackColor = true;
+            this.btnSwapAnytype.Click += new System.EventHandler(this.btnSwapAnytype_Click);
             // 
             // listBox2
             // 
             this.listBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 22;
+            this.listBox2.ItemHeight = 18;
             this.listBox2.Location = new System.Drawing.Point(0, 0);
             this.listBox2.Margin = new System.Windows.Forms.Padding(5);
             this.listBox2.Name = "listBox2";
@@ -159,7 +166,7 @@
             // buttonX
             // 
             this.buttonX.AutoSize = true;
-            this.buttonX.Location = new System.Drawing.Point(435, 39);
+            this.buttonX.Location = new System.Drawing.Point(374, 39);
             this.buttonX.Margin = new System.Windows.Forms.Padding(5);
             this.buttonX.Name = "buttonX";
             this.buttonX.Size = new System.Drawing.Size(159, 51);
@@ -200,6 +207,7 @@
             this.button45.TabIndex = 38;
             this.button45.Text = "Var (隱含型別區域變數)";
             this.button45.UseVisualStyleBackColor = false;
+            this.button45.Click += new System.EventHandler(this.button45_Click);
             // 
             // button43
             // 
@@ -213,6 +221,7 @@
             this.button43.TabIndex = 40;
             this.button43.Text = "匿名型別 Anonymouse type";
             this.button43.UseVisualStyleBackColor = false;
+            this.button43.Click += new System.EventHandler(this.button43_Click);
             // 
             // button41
             // 
@@ -226,6 +235,7 @@
             this.button41.TabIndex = 42;
             this.button41.Text = "物件初始化 (Object Initializer) / 集合初始化 ";
             this.button41.UseVisualStyleBackColor = false;
+            this.button41.Click += new System.EventHandler(this.button41_Click);
             // 
             // button40
             // 
@@ -251,6 +261,7 @@
             this.button3.TabIndex = 48;
             this.button3.Text = "從 Linq 實作 看 C# 3.0 ";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button39
             // 
@@ -299,12 +310,13 @@
             this.button32.TabIndex = 20;
             this.button32.Text = "擴充方法";
             this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.btnSwapIntStr);
+            this.groupBox1.Controls.Add(this.btnSwapAnytype);
+            this.groupBox1.Controls.Add(this.btnSwapObj);
             this.groupBox1.Location = new System.Drawing.Point(55, 39);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
@@ -314,18 +326,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generic Method";
             // 
-            // button4
+            // btnSwapIntStr
             // 
-            this.button4.AutoSize = true;
-            this.button4.BackColor = System.Drawing.SystemColors.Control;
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(42, 39);
-            this.button4.Margin = new System.Windows.Forms.Padding(5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(372, 51);
-            this.button4.TabIndex = 53;
-            this.button4.Text = "SwapInt / SwapString...";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnSwapIntStr.AutoSize = true;
+            this.btnSwapIntStr.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSwapIntStr.ForeColor = System.Drawing.Color.Black;
+            this.btnSwapIntStr.Location = new System.Drawing.Point(42, 39);
+            this.btnSwapIntStr.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSwapIntStr.Name = "btnSwapIntStr";
+            this.btnSwapIntStr.Size = new System.Drawing.Size(372, 51);
+            this.btnSwapIntStr.TabIndex = 53;
+            this.btnSwapIntStr.Text = "SwapInt / SwapString...";
+            this.btnSwapIntStr.UseVisualStyleBackColor = false;
+            this.btnSwapIntStr.Click += new System.EventHandler(this.btnSwapIntStr_Click);
             // 
             // splitContainer2
             // 
@@ -371,7 +384,7 @@
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 22;
+            this.listBox1.ItemHeight = 18;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Margin = new System.Windows.Forms.Padding(5);
             this.listBox1.Name = "listBox1";
@@ -424,6 +437,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button13);
             this.groupBox2.Location = new System.Drawing.Point(73, 450);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
@@ -433,6 +447,20 @@
             this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Iterator";
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.BackColor = System.Drawing.SystemColors.Control;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(1007, 57);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(60, 51);
+            this.button2.TabIndex = 57;
+            this.button2.Text = "bool?";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button13
             // 
@@ -446,6 +474,7 @@
             this.button13.TabIndex = 12;
             this.button13.Text = "C# 2.0公開能逐一查看集合內容的列舉值 - Yield Return";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // splitContainer1
             // 
@@ -480,15 +509,15 @@
             this.label4.Location = new System.Drawing.Point(86, 653);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(373, 22);
+            this.label4.Size = new System.Drawing.Size(327, 18);
             this.label4.TabIndex = 37;
             this.label4.Text = "C# 3.0 宣告風格的編碼程式 / 高層次的抽象";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button8);
+            this.groupBox3.Controls.Add(this.btnGenericItf);
             this.groupBox3.Controls.Add(this.groupBox1);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.btnGenericClass);
             this.groupBox3.Location = new System.Drawing.Point(77, 27);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox3.Name = "groupBox3";
@@ -498,20 +527,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Generic  (泛型)";
             // 
-            // button8
+            // btnGenericItf
             // 
-            this.button8.AutoSize = true;
-            this.button8.Location = new System.Drawing.Point(560, 122);
-            this.button8.Margin = new System.Windows.Forms.Padding(5);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(504, 51);
-            this.button8.TabIndex = 60;
-            this.button8.Text = "Generic Interface - IEnumerable<T>";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnGenericItf.AutoSize = true;
+            this.btnGenericItf.Location = new System.Drawing.Point(560, 122);
+            this.btnGenericItf.Margin = new System.Windows.Forms.Padding(5);
+            this.btnGenericItf.Name = "btnGenericItf";
+            this.btnGenericItf.Size = new System.Drawing.Size(504, 51);
+            this.btnGenericItf.TabIndex = 60;
+            this.btnGenericItf.Text = "Generic Interface - IEnumerable<T>";
+            this.btnGenericItf.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.btnMyWhere);
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.btnDelegate);
             this.groupBox4.Controls.Add(this.buttonX);
             this.groupBox4.Location = new System.Drawing.Point(77, 301);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
@@ -522,18 +553,47 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Delegate (委派)";
             // 
-            // button2
+            // btnMyWhere
             // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(105, 39);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(319, 51);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Delegate 委派演進";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnMyWhere.AutoSize = true;
+            this.btnMyWhere.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMyWhere.ForeColor = System.Drawing.Color.Black;
+            this.btnMyWhere.Location = new System.Drawing.Point(712, 39);
+            this.btnMyWhere.Margin = new System.Windows.Forms.Padding(5);
+            this.btnMyWhere.Name = "btnMyWhere";
+            this.btnMyWhere.Size = new System.Drawing.Size(323, 51);
+            this.btnMyWhere.TabIndex = 53;
+            this.btnMyWhere.Text = "List<int>MyWhere(int[ ], MyDelegate)";
+            this.btnMyWhere.UseVisualStyleBackColor = false;
+            this.btnMyWhere.Click += new System.EventHandler(this.btnMyWhere_Click);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(543, 39);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 51);
+            this.button1.TabIndex = 52;
+            this.button1.Text = "test Delegate";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnDelegate
+            // 
+            this.btnDelegate.AutoSize = true;
+            this.btnDelegate.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDelegate.ForeColor = System.Drawing.Color.Black;
+            this.btnDelegate.Location = new System.Drawing.Point(32, 39);
+            this.btnDelegate.Margin = new System.Windows.Forms.Padding(5);
+            this.btnDelegate.Name = "btnDelegate";
+            this.btnDelegate.Size = new System.Drawing.Size(319, 51);
+            this.btnDelegate.TabIndex = 1;
+            this.btnDelegate.Text = "Delegate 委派演進";
+            this.btnDelegate.UseVisualStyleBackColor = false;
+            this.btnDelegate.Click += new System.EventHandler(this.btnDelegate_Click);
             // 
             // label1
             // 
@@ -544,9 +604,18 @@
             this.label1.Size = new System.Drawing.Size(1014, 18);
             this.label1.TabIndex = 46;
             // 
+            // nwDataSet1
+            // 
+            this.nwDataSet1.DataSetName = "NWDataSet";
+            this.nwDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsTableAdapter1
+            // 
+            this.productsTableAdapter1.ClearBeforeFill = true;
+            // 
             // FrmLangForLINQ
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1569, 856);
             this.Controls.Add(this.splitContainer1);
@@ -583,17 +652,18 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nwDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSwapObj;
+        private System.Windows.Forms.Button btnGenericClass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnSwapAnytype;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button buttonX;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -607,7 +677,7 @@
         private System.Windows.Forms.Button button38;
         private System.Windows.Forms.Button button32;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSwapIntStr;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.ListBox listBox1;
@@ -619,9 +689,14 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnGenericItf;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDelegate;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMyWhere;
+        private System.Windows.Forms.Button button2;
+        private LinqLabs.Dataset.NWDataSet nwDataSet1;
+        private LinqLabs.Dataset.NWDataSetTableAdapters.ProductsTableAdapter productsTableAdapter1;
     }
 }
