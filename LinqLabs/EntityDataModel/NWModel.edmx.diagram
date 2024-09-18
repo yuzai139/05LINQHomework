@@ -6,12 +6,15 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f9ba21caef8a42599b51cee0eee1f91a" Name="Diagram1">
         <EntityTypeShape EntityType="NorthwindModel.Category" Width="1.5" PointX="0.5" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NorthwindModel.Order" Width="1.5" PointX="8.625" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NorthwindModel.Order" Width="1.5" PointX="7.875" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NorthwindModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="NorthwindModel.FK_Products_Categories" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="NorthwindModel.Order_Detail" Width="1.5" PointX="6.25" PointY="1.5" />
+        <EntityTypeShape EntityType="NorthwindModel.Order_Detail" Width="1.5" PointX="5.5" PointY="1.5" />
         <AssociationConnector Association="NorthwindModel.FK_Order_Details_Orders" />
         <AssociationConnector Association="NorthwindModel.FK_Order_Details_Products" />
+        <EntityTypeShape EntityType="NorthwindModel.Employee" Width="1.5" PointX="10" PointY="0.875" />
+        <AssociationConnector Association="NorthwindModel.FK_Employees_Employees" />
+        <AssociationConnector Association="NorthwindModel.FK_Orders_Employees" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

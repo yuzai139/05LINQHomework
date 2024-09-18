@@ -51,8 +51,8 @@ namespace MyHomeWork
                       select logFile;
 
             List<FileInfo> list = log.ToList();
-            this.dataGridView1.DataSource = list;
-            lblMaster.Text = "FileInfo[].Log  擋";
+            this.dataGridView2.DataSource = list;
+            lblDetails.Text = "FileInfo[].Log  擋";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,8 +66,8 @@ namespace MyHomeWork
                       select logFile;
 
             List<FileInfo> list = log.ToList();
-            this.dataGridView1.DataSource = list;
-            lblMaster.Text = "FileInfo[] - 2017 Created - oerder ";
+            this.dataGridView2.DataSource = list;
+            lblDetails.Text = "FileInfo[] - 2017 Created - oerder ";
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -83,8 +83,8 @@ namespace MyHomeWork
                       select logFile;
 
             List<FileInfo> list = log.ToList();
-            this.dataGridView1.DataSource = list;
-            lblMaster.Text = "FileInfo[] - 大檔案";
+            this.dataGridView2.DataSource = list;
+            lblDetails.Text = "FileInfo[] - 大檔案";
         }
 
         private void button6_Click(object sender, EventArgs e)

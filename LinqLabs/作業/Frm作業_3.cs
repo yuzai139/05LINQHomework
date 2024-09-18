@@ -15,8 +15,6 @@ namespace LinqLabs.作業
 {
     public partial class Frm作業_3 : Form
     {
-
-
         public class Student
         {
             public string Name { get; set; }
@@ -199,10 +197,10 @@ namespace LinqLabs.作業
                 }
             }
         }
-        NorthwindEntities _dbContext = new NorthwindEntities();
+        NorthwindEntities _dbContent = new NorthwindEntities();
         private void button8_Click(object sender, EventArgs e)
         {
-            var q = from p in _dbContext.Products.ToList()
+            var q = from p in _dbContent.Products.ToList()
                     group p by Price(p.UnitPrice) into g
                     select new { 分類 = g.Key, 數量 = g.Count(), myGroup = g };
             dataGridView1.DataSource = q.ToList();
@@ -235,7 +233,7 @@ namespace LinqLabs.作業
 
         private void button15_Click(object sender, EventArgs e)
         {
-            var q = from o in _dbContext.Orders.ToList()
+            var q = from o in _dbContent.Orders.ToList()
                     group o by o.OrderDate.Value.Year into g
                     select new { 年 = g.Key, 數量 = g.Count(), myGroup = g };
             dataGridView1.DataSource = q.ToList();
@@ -254,7 +252,7 @@ namespace LinqLabs.作業
             // IQueryable 尚未跟DB取得資料單純組語句
             // .ToList 把語法轉成SQL語句跟DB撈資料 已撈回記憶體
 
-            var orderByYearMonth = _dbContext.Orders
+            var orderByYearMonth = _dbContent.Orders
                      .Where(x => x.OrderDate.HasValue)
                      .GroupBy(x => new { x.OrderDate.Value.Year, x.OrderDate.Value.Month })
                      .Select(x => new { year = x.Key.Year, month = x.Key.Month, Count = x.Count() })
@@ -264,7 +262,7 @@ namespace LinqLabs.作業
 
             //var aa1 = _dbContext.Orders.Where(x => x.OrderDate.Value.AddDays(1) >= new DateTime(1990, 5, 9)).ToList();
 
-            var q = (from o in _dbContext.Orders.ToList()
+            var q = (from o in _dbContent.Orders.ToList()
                      group o by new { o.OrderDate.Value.Year, o.OrderDate.Value.Month } into g
                      select new { 年 = g.Key.Year, 月 = g.Key.Month, 數量 = g.Count(), myGroup = g })
                     .OrderBy(x => x.年)
@@ -295,7 +293,7 @@ namespace LinqLabs.作業
             //var q = from o in _dbContext.Order_Details.ToList()
             //        select new { 訂單 = o.OrderID, 總銷售金額 = Convert.ToInt32(o.UnitPrice) * discount(o.Quantity * o.Discount) * o.Quantity };
             //dataGridView1.DataSource = q.ToList();
-            var total = _dbContext.Order_Details.ToList()
+            var total = _dbContent.Order_Details.ToList()
                 .GroupBy(x => new { x.OrderID, x.UnitPrice, x.Quantity, x.Discount })
                 .Select(x => new { orderID = x.Key.OrderID, money = Convert.ToInt32(x.Key.UnitPrice) * x.Key.Quantity * discount(x.Key.Discount), group = x })
                 ;
@@ -317,15 +315,15 @@ namespace LinqLabs.作業
                          //總額 = x.UnitPrice * x.Quantity,
                          x
                      })*/
-                      _dbContext.Order_Details
+                      _dbContent.Order_Details
                      .GroupBy(n => new { n.OrderID })
                      .Select(n => new { n.Key.OrderID, total = n.Sum(y => y.Quantity * y.UnitPrice) })
                      .ToList();
 
 
             //SelectMany對陣列、集合
-            List<ICollection<Order_Detail>> a1 = _dbContext.Products.Select(x => x.Order_Details).ToList();
-            List<Order_Detail> a2 = _dbContext.Products.SelectMany(x => x.Order_Details).ToList();
+            List<ICollection<Order_Detail>> a1 = _dbContent.Products.Select(x => x.Order_Details).ToList();
+            List<Order_Detail> a2 = _dbContent.Products.SelectMany(x => x.Order_Details).ToList();
 
             var products = a2
                 .GroupBy(data => data.Product.ProductName)
@@ -333,7 +331,7 @@ namespace LinqLabs.作業
                 .OrderBy(x => x.Key)
             .ToList();
 
-            var a3 = _dbContext.Order_Details
+            var a3 = _dbContent.Order_Details
                             .GroupBy(x => x.Product.ProductName)
                             .Select(x => new { x.Key, totoal = x.Sum(y => y.Quantity * y.UnitPrice) })
                             .OrderBy(x => x.Key)
@@ -364,12 +362,38 @@ namespace LinqLabs.作業
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            // var products = _dbContext.Products
+            //    .SelectMany(x => x.Order_Details)
+            //    .GroupBy(x => x.Product.ProductName)
+            //    .Select(x => new { x.Key, totoal = x.Sum(y => y.Quantity * y.UnitPrice) })
+            //    .OrderBy(x => x.Key)
+            //.ToList();
 
+            //var top5 = _dbContext.Orders
+            //    .GroupBy(x => x.EmployeeID)
+            //    .Select(x => new {x.Key,count = x.Count() })
+            //    .ToList();
+            var top5 = (from od in _dbContent.Order_Details.ToList()
+                         group od by od.OrderID into orderGroup
+                         join o in _dbContent.Orders on orderGroup.Key equals o.OrderID
+                         group new { Order = o, Total = orderGroup.Sum(od => 
+                             Convert.ToInt32(od.UnitPrice) * od.Quantity * discount(od.Discount) )} 
+                         by o.EmployeeID into employeeGroup
+                         join em in _dbContent.Employees on employeeGroup.Key equals em.EmployeeID  
+                         select new
+                         {
+                             EmployeeName = em.FirstName + " " + em.LastName,
+                             TotalSales = employeeGroup.Sum(og => og.Total)
+                         }).OrderByDescending(x=>x.TotalSales);
+
+
+
+            dataGridView1.DataSource=top5.Take(5).ToList();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            var q = from p in _dbContext.Products.ToList()
+            var q = from p in _dbContent.Products.ToList()
                     orderby p.UnitPrice descending
                     select new { Name = p.ProductName, Price = p.UnitPrice, Category = p.Category.CategoryName };
             dataGridView1.DataSource = q.Take(5).ToList();
@@ -377,7 +401,7 @@ namespace LinqLabs.作業
 
         private void button7_Click(object sender, EventArgs e)
         {
-            var q = from p in _dbContext.Products.ToList()
+            var q = from p in _dbContent.Products.ToList()
                     where p.UnitPrice > 300
                     select new { Name = p.ProductName, Price = p.UnitPrice, Category = p.Category.CategoryName };
             dataGridView1.DataSource = q.ToList();
